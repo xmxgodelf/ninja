@@ -5,7 +5,7 @@ GITROOT=$(git rev-parse --show-toplevel)
 cd $GITROOT
 
 VER=1.0
-REL=$(git rev-parse --short HEAD)git
+REL=zy_1.0.0_1.ctyunos
 RPMTOPDIR=$GITROOT/rpm-build
 echo "Ver: $VER, Release: $REL"
 

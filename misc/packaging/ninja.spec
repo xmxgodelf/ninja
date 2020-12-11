@@ -1,7 +1,7 @@
 Summary: Ninja is a small build system with a focus on speed.
 Name: ninja
 Version: %{ver}
-Release: %{rel}%{?dist}
+Release: zy_1.0.0_1.ctyunos
 Group: Development/Tools
 License: Apache 2.0
 URL: https://github.com/ninja-build/ninja

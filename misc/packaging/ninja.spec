@@ -24,16 +24,25 @@ seconds to start building after changing one file. Ninja is under a second.
 %build
 echo Building..
 ./configure.py --bootstrap
-./ninja manual
+./ninja -v manual
+./ninja -v ninja_test
 
 %install
-mkdir -p %{buildroot}%{_bindir} %{buildroot}%{_docdir}
-cp -p ninja %{buildroot}%{_bindir}/
+install -Dpm0755 ninja %{buildroot}%{_bindir}/ninja
+install -Dpm0644 misc/bash-completion %{buildroot}%{_datadir}/bash-completion/completions/ninja
+install -Dpm0644 misc/ninja-mode.el %{buildroot}%{_datadir}/emacs/site-lisp/ninja-mode.el
+install -Dpm0644 misc/ninja.vim %{buildroot}%{_datadir}/vim/vimfiles/syntax/ninja.vim
+install -Dpm0644 misc/ninja.vim %{buildroot}%{_datadir}/vim/vimfiles/ftdetect/ninja.vim
+install -Dpm0644 misc/macros.ninja %{buildroot}%{rpmmacrodir}/macros.ninja
+install -Dpm0644 misc/zsh-completion %{buildroot}%{_datadir}/zsh/site-functions/_ninja
+ln -s ninja %{buildroot}%{_bindir}/ninja-build
+
 
 %files
 %defattr(-, root, root)
 %doc COPYING README.md doc/manual.html
 %{_bindir}/*
+%{rpmmacrodir}/*
 
 %clean
 rm -rf %{buildroot}

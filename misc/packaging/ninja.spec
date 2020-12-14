@@ -1,5 +1,5 @@
 Summary: Ninja is a small build system with a focus on speed.
-Name: ninja
+Name: ninja-build
 Version: %{ver}
 Release: zy_1.0.0_1.ctyunos
 Group: Development/Tools
